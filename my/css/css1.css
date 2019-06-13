@@ -1,0 +1,14 @@
+﻿body {font-size:12px;background-color: #26B1B6;background-size: cover;background-image: url(../img/giphy.webp);}
+legend{font-size:18px}
+label{font-size:18px}
+#frmTmp{color: white}
+.inputbtn {border:solid 1px #ccc;background-color:#eee;line-height:18px;font-size:12px}
+.inputtxt {border:solid 1px #ccc;padding:3px;line-height:18px;font-size:12px;width:160px}
+fieldset{padding:10px;width:280px;margin: 0 auto;}
+#result{width:200px;height:200px;}
+#spnColor{font-size:18px;width:150px;}
+#spnPrev{width:700px;height:400px;border:solid 1px #ccc;float:right}
+#pColor{font-size:16px;font-weight:bold; clear:both;text-align:center}
+/*文件拖拽样式*/
+#divFrame{margin-top: 50px;width:400px;   height:400px; position:relative;}
+#divTitle{color: white;height:23px;line-height:23px;cursor:move;padding-left:10px}

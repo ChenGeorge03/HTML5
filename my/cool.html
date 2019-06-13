@@ -1,0 +1,78 @@
+﻿<html>
+<head>
+<meta charset="utf-8" />
+<title>改变背景</title>
+<link href="css/css1.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="javascript" src="js/js1.js">
+</script>
+<script type="text/javascript" language="javascript" src="js/js2.js">
+</script>
+</head>
+<body onLoad="pageload();">
+	<div style="text-align: center;font-size: 36px;color: white;">
+		<h2>
+			玩转背景
+		</h2>
+	</div>
+	<form id="frmTmp">
+		<fieldset>
+   <legend>选择颜色值：</legend>
+   <span id="spnColor">
+
+   <input id="txtR" type="range" value="0" 
+          min="0" max="255" onChange="setSpnColor()" > 
+   <input id="txtG" type="range" value="0" 
+          min="0" max="255" onChange="setSpnColor()"> 
+   <input id="txtB" type="range" value="0" 
+          min="0" max="255" onChange="setSpnColor()"> <br/>
+    <label>请选择一张图片：</label>
+    <input type="file" id="file" />
+    <input type="button" value="更改背景" onclick="readFile ()"/><br/><br/>
+   </span>
+   <span id="spnPrev">
+   	<div id="divFrame" >
+		<div id="divTitle">
+			<!-- 这里用来显示读取结果 -->
+			<div name="result" id="result">
+			</div>
+		</div>
+	</div>
+   </span>
+   <P id="pColor">rgb(0,0,0)</P>
+</fieldset>
+
+<div style="float: right;">
+		<a class="link" href="myweb.html#block-prjEXP" ><p style="font-size: 24px;">返回功能展示</p></a>
+</div>
+</form>
+<script language=javascript>
+var result=document.getElementById("result");
+var file=document.getElementById("file");
+if (typeof FileReader == 'undefined' )
+{
+   result.innerHTML = "<p>抱歉，你的浏览器不支持 FileReader</p>";
+   file.setAttribute( 'disabled','disabled' );
+}
+//将文件以Data URL形式进行读入页面
+function readFile ()
+{
+    //检查是否为图像文件
+    var file = document.getElementById("file").files[0];
+    if(!/image\/\w+/.test(file.type))
+    {
+        alert("请确保文件为图像类型");
+        return false;
+    }    
+    var reader = new FileReader();
+    //将文件以Data URL形式进行读入页面
+    reader.readAsDataURL(file);
+    reader.onload = function(e)
+    {
+       var result=document.getElementById("result");
+       //在页面上显示文件
+       result.innerHTML = '<img src="'+this.result+'" alt=""/>'
+    }
+}
+</script>
+</body>
+</html>
